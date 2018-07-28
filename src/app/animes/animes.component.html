@@ -1,0 +1,12 @@
+<h2>My Animes</h2>
+
+
+<ul class="animes">
+  <li *ngFor="let anime of animes"
+    [class.selected]="anime === selectedAnime"
+    (click)="onSelect(anime)">
+    <span class="badge">{{anime.name}}</span> {{anime.rating}}
+  </li>
+</ul>
+
+<app-anime-detail [anime]="selectedAnime"></app-anime-detail>

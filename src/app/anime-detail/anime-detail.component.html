@@ -1,0 +1,11 @@
+<div *ngIf="anime">
+
+  <h2>{{anime.name | uppercase}} Details</h2>
+  <div><span>name: </span>{{anime.name}}</div>
+  <div>
+    <label>rating:
+      <input [(ngModel)]="anime.rating" placeholder="rating"/>
+    </label>
+  </div>
+
+</div>
