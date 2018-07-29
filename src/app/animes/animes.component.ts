@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Anime } from '../anime';
-import { ANIMES } from '../mock-animes';
+import { AnimeService } from '../anime.service';
 
 @Component({
   selector: 'app-animes',
@@ -8,16 +8,22 @@ import { ANIMES } from '../mock-animes';
   styleUrls: ['./animes.component.css']
 })
 export class AnimesComponent implements OnInit {
-  animes = ANIMES;
+  animes: Anime[];
   selectedAnime: Anime;
 
-  constructor() { }
+  constructor(private animeService: AnimeService) { }
 
   ngOnInit() {
+    this.getAnimes();
   }
 
   onSelect(anime: Anime): void {
     this.selectedAnime = anime;
+  }
+
+  getAnimes(): void {
+    this.animeService.getAnimes()
+      .subscribe(animes => this.animes = animes);
   }
 
 }
