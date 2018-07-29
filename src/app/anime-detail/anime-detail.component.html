@@ -1,5 +1,4 @@
 <div *ngIf="anime">
-
   <h2>{{anime.name | uppercase}} Details</h2>
   <div><span>name: </span>{{anime.name}}</div>
   <div>
@@ -7,5 +6,5 @@
       <input [(ngModel)]="anime.rating" placeholder="rating"/>
     </label>
   </div>
-
+  <button (click)="goBack()">go back</button>
 </div>

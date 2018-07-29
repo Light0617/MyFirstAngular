@@ -3,12 +3,12 @@ import { Anime } from '../anime';
 import { AnimeService } from '../anime.service';
 
 @Component({
-  selector: 'app-animes',
-  templateUrl: './animes.component.html',
-  styleUrls: ['./animes.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: [ './dashboard.component.css' ]
 })
-export class AnimesComponent implements OnInit {
-  animes: Anime[];
+export class DashboardComponent implements OnInit {
+  animes: Anime[] = [];
 
   constructor(private animeService: AnimeService) { }
 
@@ -18,7 +18,6 @@ export class AnimesComponent implements OnInit {
 
   getAnimes(): void {
     this.animeService.getAnimes()
-      .subscribe(animes => this.animes = animes);
+      .subscribe(animes => this.animes = animes.slice(1, 5));
   }
-
 }
