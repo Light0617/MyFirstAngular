@@ -32,4 +32,9 @@ export class AnimeDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  save(): void {
+   this.animeService.updateAnime(this.anime)
+     .subscribe(() => this.goBack());
+ }
 }

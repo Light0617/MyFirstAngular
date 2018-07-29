@@ -1,0 +1,13 @@
+<div id="search-component">
+  <h4>Anime Search</h4>
+
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let anime of animes$ | async" >
+      <a routerLink="/detail/{{anime.id}}">
+        {{anime.name}}
+      </a>
+    </li>
+  </ul>
+</div>

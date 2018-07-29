@@ -1,9 +1,22 @@
 <h2>My Animes</h2>
 
+<div>
+  <label>Anime name:
+    <input #animeName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(animeName.value); animeName.value=''">
+    add
+  </button>
+</div>
+
+
 <ul class="animes">
   <li *ngFor="let anime of animes">
     <a routerLink="/detail/{{anime.id}}">
       <span class="badge">{{anime.name}}</span> {{anime.rating}}
     </a>
+    <button class="delete" title="delete anime"
+      (click)="delete(anime)">x</button>
   </li>
 </ul>
